@@ -15,7 +15,7 @@
 			],
 			"sourceMaps": true,
 			"resolveSourceMapLocations": [
-				"${workspaceRoot}/src//dist/extension.js.map",
+				"${workspaceRoot}/src/dist/extension.js.map",
 				"!**/node_modules/**"
 			],
 			"preLaunchTask": "npm: build"

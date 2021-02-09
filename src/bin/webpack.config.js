@@ -18,7 +18,7 @@ const electonBaseConfiguration = {
                     {
                         loader: 'ts-loader',
                         options: {
-                            configFile: path.resolve(process.cwd(), "./tsconfig.json")
+                            configFile: path.resolve(process.cwd(), './tsconfig.json')
                         }
                     }
                 ]
@@ -34,14 +34,14 @@ const extension = {
     },
     output: {
         path: path.resolve(process.cwd(), 'dist'),
-        filename: "extension.js",
+        filename: 'vscode-electron.js',
         libraryTarget: 'commonjs2',
     },
     target: "node",
     entry: {
-        "main": './lib/extension/main.ts'
+        main: './lib/extension/main.ts'
     },
-    mode: "development",
+    mode: 'development',
 }
 
 /**
