@@ -10,7 +10,7 @@ export function activate(context: vscode.ExtensionContext) {
          */
         vscode.commands.registerCommand('qmasters:electron.demo', () => {
             const electron_app = path.resolve(__dirname, `electron-main.js`);
-            vscode.commands.executeCommand('qmasters:run.electron', electron_app);
+            vscode.commands.executeCommand('qmasters:electron.run', electron_app);
         })
     ]
     context.subscriptions.push(...disposables);
