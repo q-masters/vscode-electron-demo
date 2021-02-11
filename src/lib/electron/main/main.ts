@@ -12,8 +12,16 @@ function createWindow () {
     }
   })
 
+  const params = process.argv.slice(2);
+
   // and load the index.html of the app.
-  mainWindow.loadFile(path.resolve(__dirname, 'index.html'));
+  mainWindow.loadURL(params[0] ?? 'https://www.google.com');
+
+  mainWindow.webContents.once("dom-ready", () => {
+    if (process.send) {
+      process.send('electron:heartbeat')
+    }
+  })
 }
 
 const template: any[] = [{
