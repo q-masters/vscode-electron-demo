@@ -1,19 +1,20 @@
-import "reflect-metadata";
-import * as vscode from "vscode";
-import * as path from "path";
+import "reflect-metadata"
+import * as vscode from "vscode"
+import { openUriCommand } from "./commands/open-uri"
 
 export function activate(context: vscode.ExtensionContext) {
+
     let disposables = [
         /**
          * run electron
          *
          */
         vscode.commands.registerCommand('qmasters:electron.demo', () => {
-            const electron_app = path.resolve(__dirname, `electron-main.js`);
-            vscode.commands.executeCommand('qmasters:electron.run', electron_app);
-        })
+            vscode.commands.executeCommand(`qmasters:electron.openUri`)
+        }),
+        vscode.commands.registerCommand('qmasters:electron.openUri', openUriCommand)
     ]
-    context.subscriptions.push(...disposables);
+    context.subscriptions.push(...disposables)
 }
 
 /**
