@@ -1,5 +1,5 @@
 import "electron";
-import {app, BrowserWindow, Menu} from "electron";
+import {app, BrowserWindow, Menu, session} from "electron";
 import * as path from "path";
 
 function createWindow () {
@@ -21,6 +21,19 @@ function createWindow () {
     if (process.send) {
       process.send('electron:heartbeat')
     }
+  })
+  
+  mainWindow.once('close', ($event) => {
+
+    $event.preventDefault();
+
+    session.defaultSession.cookies.get({})
+      .then((cookies) => {
+        if (process.send) {
+          /** maybe we have to serialize this ones */
+          process.send(cookies);
+        }
+      });
   })
 }
 
