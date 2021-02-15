@@ -10,7 +10,6 @@ export function activate(context: vscode.ExtensionContext) {
          *
          */
         vscode.commands.registerCommand('qmasters:electron.demo', async () => {
-            await vscode.commands.executeCommand(`qmasters:electron.install`, `v11.1.0`)
             vscode.commands.executeCommand(`qmasters:electron.openUri`)
         }),
         vscode.commands.registerCommand('qmasters:electron.openUri', openUriCommand)
