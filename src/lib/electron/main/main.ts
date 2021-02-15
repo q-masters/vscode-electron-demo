@@ -25,13 +25,14 @@ function createWindow () {
   
   mainWindow.once('close', ($event) => {
 
-    $event.preventDefault();
+    $event.preventDefault()
 
     session.defaultSession.cookies.get({})
       .then((cookies) => {
         if (process.send) {
           /** maybe we have to serialize this ones */
-          process.send(cookies);
+          process.send(cookies)
+          mainWindow.close()
         }
       });
   })
